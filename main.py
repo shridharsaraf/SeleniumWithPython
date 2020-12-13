@@ -1,4 +1,54 @@
-from selenium import  webdriver
+#Another Code for performing test automation for given assignment. (The previous code is made as comment below this code) 
+from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+import time
+driver=webdriver.Chrome(executable_path="C:\Drivers\chromedriver.exe")
+#driver=webdriver.Firefox(executable_path="C:\Drivers\geckodriver.exe")
+#driver=webdriver.Ie(executable_path="C:\Drivers\IEDriverServer.exe")
+driver.maximize_window()
+driver.get("https://www.saucedemo.com/")
+print(driver.title)
+time.sleep(3)
+user_input=driver.find_element_by_name("user-name")
+user_input.send_keys("standard_user")
+time.sleep(3)
+user_pwd=driver.find_element_by_name("password")
+user_pwd.send_keys("secret_sauce")
+time.sleep(3)
+login_button=driver.find_element_by_id("login-button")
+login_button.click()
+time.sleep(3)
+product=driver.find_element_by_class_name("inventory_item_name")
+product.click()
+time.sleep(3)
+cart=driver.find_element_by_xpath("//*[@id='inventory_item_container']/div/div/div/button")
+cart.click()
+time.sleep(3)
+cart_box=driver.find_element_by_class_name("shopping_cart_container")
+cart_box.click()
+time.sleep(3)
+checkout=driver.find_element_by_xpath("/html/body/div/div[2]/div[3]/div/div[2]/a[2]")
+checkout.click()
+time.sleep(3)
+f_name=driver.find_element_by_id("first-name")
+f_name.send_keys("Sreyas")
+time.sleep(3)
+name=driver.find_element_by_xpath("//*[@id='last-name']")
+name.send_keys("Joshy")
+time.sleep(3)
+zip=driver.find_element_by_id("postal-code")
+zip.send_keys("686144")
+time.sleep(3)
+Continue=driver.find_element_by_xpath("//*[@id='checkout_info_container']/div/form/div[2]/input")
+Continue.click()
+time.sleep(3)
+finish=driver.find_element_by_xpath("//*[@id='checkout_summary_container']/div/div[2]/div[8]/a[2]")
+finish.click()
+time.sleep(3)
+driver.quit()
+
+
+""" from selenium import  webdriver
 from selenium.webdriver.common.keys import Keys
 import time
 driver=webdriver.Chrome(executable_path="C:\Driver\chromedriver_win32\chromedriver.exe")
@@ -34,4 +84,4 @@ Continue=driver.find_element_by_xpath("//*[@id='checkout_info_container']/div/fo
 time.sleep(3)
 finish=driver.find_element_by_xpath("//*[@id='checkout_summary_container']/div/div[2]/div[8]/a[2]").click()
 time.sleep(3)
-driver.quit()
+driver.quit()"""
